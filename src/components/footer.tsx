@@ -21,10 +21,10 @@ export default function Footer() {
                 <p className="text-white bold text-2xl flex flex-row items-center justify-center gap-2">Made with <FaCode /> By Kush</p>
                 <div>
                     <div className="flex flex-row gap-3 p-2 h-fit">
-                        <SocialButton href="https://github.com/kushdhingra"><FaGithub /></SocialButton>
-                        <SocialButton href="https://www.linkedin.com/in/kush-dhingra-/"><FaLinkedinIn /></SocialButton>
+                        <SocialButton href="https://github.com/thekushdhingra"><FaGithub /></SocialButton>
+                        <SocialButton href="https://www.linkedin.com/in/thekushdhingra/"><FaLinkedinIn /></SocialButton>
                         <SocialButton href="https://twitter.com/thekushdhingra"><FaXTwitter /></SocialButton>
-                        <SocialButton href="https://www.youtube.com/@kushdhingra"><FaYoutube /></SocialButton>
+                        <SocialButton href="https://www.youtube.com/@thekushdhingra"><FaYoutube /></SocialButton>
                         <SocialButton href="/resume.pdf"><FaFileCode /></SocialButton>
                     </div>
                 </div>
