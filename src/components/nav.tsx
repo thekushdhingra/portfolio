@@ -53,7 +53,7 @@ export default function Navbar() {
         <>
             <div className="z-50 w-[100vw] fixed top-[1rem] left-0 mt-1 flex flex-row items-center justify-between pl-4 pr-4">
                 <div className="backdrop-blur-lg p-2 rounded-md">
-                    <div className="smol:flex hidden">
+                    <div className="smol:flex hidden flex-col">
                         <p className="font-bold text-1xl text-white">Kush Dhingra</p>
                         <p className="text-[10px] text-gray-200">Web Developer</p>
                     </div>
