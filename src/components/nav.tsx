@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { CiAt } from "react-icons/ci";
 import { GrClose } from "react-icons/gr";
-import Link from "next/link"; // Import Link from next/link
+import Link from "next/link";
+import Logo from "./logo";
 
 function CustomLink({ children, href, className }: { children: React.ReactNode; href: string; className: string }) {
     const [current, setCurrent] = useState("");
@@ -52,8 +53,13 @@ export default function Navbar() {
         <>
             <div className="z-50 w-[100vw] fixed top-[1rem] left-0 mt-1 flex flex-row items-center justify-between pl-4 pr-4">
                 <div className="backdrop-blur-lg p-2 rounded-md">
-                    <p className="font-bold text-1xl text-white">Kush Dhingra</p>
-                    <p className="text-[10px] text-gray-200">Web Developer</p>
+                    <div className="smol:flex hidden">
+                        <p className="font-bold text-1xl text-white">Kush Dhingra</p>
+                        <p className="text-[10px] text-gray-200">Web Developer</p>
+                    </div>
+                    <div className="smol:hidden flex">
+                        <Logo />
+                    </div>
                 </div>
                 <nav className="z-50 fixed left-1/2 translate-x-[-150%] flex w-fit top-[1.3rem] shadow-xl shadow-black/30 768:fixed max-480:fixed max-480:left-1/2 max-480:-translate-x-1/2 p-1 gap-x-2 768:left-1/2 768:-translate-x-1/2 border-white/10 duration-300 border-[1px] bg-transparent rounded-full backdrop-blur-md ml-40">
                     <CustomLink href="/" className="px-4 py-2 rounded-full hover:bg-[#fff2] transition-colors duration-100">Work</CustomLink>

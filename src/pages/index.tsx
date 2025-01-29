@@ -11,9 +11,7 @@ import { IoIosMore } from "react-icons/io";
 import { SiTypescript } from "react-icons/si";
 import { useEffect, useState } from "react";
 import Footer from "@/components/footer";
-import { Project, ProjectProps } from "@/components/project";
 import { Kalnia } from "next/font/google";
-import Keyboard from "@/components/keyboard";
 import { BsGithub } from "react-icons/bs";
 import Link from "next/link";
 const font = Kalnia({ subsets: ['latin'] })
@@ -46,21 +44,10 @@ console.log(greet)`}
 }
 export default function Home() {
   const [Code, setCode] = useState<JSX.Element>(<PythonCode />);
-  const [projects, setProjects] = useState<ProjectProps[]>([]);
-  useEffect(() => {
-    fetch("https://raw.githubusercontent.com/kushdhingra/projects/refs/heads/main/db.json")
-    .then((response) => response.json())
-    .then((data) => {
-      setProjects(data)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }, [])
   return (
-    <div className="mt-[24rem]">
+    <div className="w-screen h-screen overflow-hidden flex flex-col items-center justify-end">
       <Navbar />
-      <div className="animate-fadeIn hidden smol:flex w-[100vw] h-[100vh] flex-col items-center justify-center p-4 1024:flex">
+      <div className="animate-fadeIn hidden smol:flex w-[100vw] h-[80vh] flex-col items-center justify-center p-4 1024:flex">
         <div className="flex flex-row items-center gap-4 bg-black border-[#9a9a9a] border-4 w-[20vw] h-[3vh] ml-3 translate-y-1 border-b-0 z-index-[-1] rounded-t-[50rem]">
           <div className="w-[2vh] h-[2vh] rounded-full bg-red-500 relative translate-y-1 block mr-auto ml-auto">
             <div className="absolute top-0 left-1/2 w-full h-[2px] translate-y-[-4px] bg-red-500 transform -translate-x-1/2" />
@@ -175,10 +162,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Keyboard />
       </div>
-      <div className="animate-fadeIn flex smol:hidden w-[100vw] h-[100vh] flex-col text-center items-center absolute top-24">
-        <div className="w-full h-full flex flex-col mt-20 animate-fadeIn">
+      <div className="animate-fadeIn overflow-hidden flex smol:hidden w-[100vw] h-[100vh] flex-col text-center items-center justify-center">
+        <div className="flex flex-col animate-fadeIn">
             <h1 className={`${font.className} text-7xl text-white drop-shadow-sm shadow-white`}>Hello 👋, I am Kush</h1>    
             <em className="text-gray-200 text-xl">Coding with passion</em>
             <div className="flex flex-row w-full items-center justify-center gap-6 mt-4">
@@ -191,28 +177,6 @@ export default function Home() {
             </div>
         </div>
       </div>
-      <div id="projects" className="w-[100vw] mt-[50vh] space-y-8 h-fit p-4 bg-transparent flex flex-col items-center">
-        <div className="w-full text-center flex flex-col mt-20 animate-fadeIn">
-            <h1 className={`${font.className} text-4xl text-white`}><FaComputer className="block mr-auto ml-auto" /> Projects</h1>    
-        </div>
-        <div className="flex gap-5 flex-row flex-wrap items-center justify-center">
-        {projects.length > 0 ? (
-          projects.map((project, index) => (
-            <Project
-              key={index}
-              name={project.name}
-              desc={project.desc}
-              github={project.github}
-              link={project.link}
-              banner={project.banner}
-            />
-          ))
-        ) : (
-          <p className="text-white">Error while loading the projects, please try refreshing the page or contact kushdhingra3112@gmail.com</p>
-        )}
-        </div>
-      </div>
-      <Footer />
     </div>
   );
 }

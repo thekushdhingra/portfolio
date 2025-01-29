@@ -12,8 +12,8 @@ export default function Footer() {
         );
     }
     return (
-        <footer className="w-[100vw] h-fit p-20 items-center justify-center mt-7 bg-gradient-to-b from-[#0002] to-black flex flex-row">
-            <div className="text-6xl smol:flex flex-col hidden w-full">
+        <footer className="w-[100vw] h-3/5 p-20 items-center justify-center bg-black flex flex-row">
+            <div className="text-6xl smol:hidden flex-col hidden w-full">
                 <Logo />
                 <em className="text-sm text-gray-300 mt-1">Living to code</em>
             </div>
