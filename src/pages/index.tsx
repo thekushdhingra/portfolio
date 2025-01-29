@@ -145,13 +145,13 @@ export default function Home() {
                 </div>
                 <div className="h-full overflow-y-scroll cursor-hover">
                   <div onClick={() => {setCode(<PythonCode />)}} className="flex hover:bg-[#fff1] flex-row">
-                    <button className="flex flex-row"><FaPython className="text-1xl mt-1 mr-2 text-blue-600" /> main.py</button>
+                    <button className="flex flex-row"><FaPython className="text-1xl mt-1 mr-2 text-[#f9e2af]" /> main.py</button>
                   </div>
                   <div onClick={() => {setCode(<JavascriptCode />)}} className="flex hover:bg-[#fff1] flex-row">
-                    <button className="flex flex-row"><FaJs className="text-1xl mt-1 mr-2 text-yellow-400" /> index.js</button>
+                    <button className="flex flex-row"><FaJs className="text-1xl mt-1 mr-2 text-[#f9e2af]" /> index.js</button>
                   </div>
                   <div onClick={() => {setCode(<TypescriptCode />)}} className="flex hover:bg-[#fff1] flex-row">
-                    <button className="flex flex-row"><SiTypescript className="text-1xl mt-1 mr-2 text-cyan-400" /> index.ts</button>
+                    <button className="flex flex-row"><SiTypescript className="text-1xl mt-1 mr-2 text-[#89b4fa]" /> index.ts</button>
                   </div>
                 </div>
               </div>
