@@ -167,10 +167,10 @@ export default function Home() {
             <h1 className={`${font.className} text-7xl text-white drop-shadow-sm shadow-white`}>Hello 👋, I am Kush</h1>    
             <em className="text-gray-200 text-xl">Coding with passion</em>
             <div className="flex flex-row w-full items-center justify-center gap-6 mt-4">
-              <Link href="https://github.com/kushdhingra" className="cursor-hover p-2 bg-white drop-shadow-2xl backdrop-blur-md rounded-md flex flex-row justify-center items-center gap-2 text-black">
+              <Link href="https://github.com/thekushdhingra" className="cursor-hover p-2 bg-white drop-shadow-2xl backdrop-blur-md rounded-md flex flex-row justify-center items-center gap-2 text-black">
                 <BsGithub /> View Github
               </Link>
-              <Link href="#projects" className="cursor-hover p-2 bg-transparent border-white transition-colors duration-500 hover:bg-white hover:text-black border-[1.5px] drop-shadow-2xl backdrop-blur-md rounded-md flex flex-row justify-center items-center gap-2">
+              <Link href="https://github.com/thekushdhingra" className="cursor-hover p-2 bg-transparent border-white transition-colors duration-500 hover:bg-white hover:text-black border-[1.5px] drop-shadow-2xl backdrop-blur-md rounded-md flex flex-row justify-center items-center gap-2">
                 <FaComputer /> View Projects
               </Link>
             </div>
