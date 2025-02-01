@@ -12,7 +12,7 @@ export default function Footer() {
         );
     }
     return (
-        <footer className="w-[100vw] h-3/5 p-20 items-center justify-center bg-black flex flex-row">
+        <footer className="w-[100vw] h-3/5 p-20 items-center justify-center flex flex-row">
             <div className="text-6xl smol:hidden flex-col hidden w-full">
                 <Logo />
                 <em className="text-sm text-gray-300 mt-1">Living to code</em>
