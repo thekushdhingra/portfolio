@@ -28,7 +28,7 @@ export default function Info() {
                         </p>
                     </div>
                     <div className="flex w-full md:w-1/2 justify-center">
-                        <Image width={320} height={320} className="rounded-full w-80 h-80 object-cover" src="/me.png" alt="Profile" />
+                        <Image width={320} height={320} className="rounded-full w-80 h-80 object-cover" src="https://github.com/thekushdhingra.png" alt="Profile" />
                     </div>
                 </section>
 
