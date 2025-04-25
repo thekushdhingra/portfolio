@@ -3,12 +3,11 @@ pre[class*="language-"] {
 	color: #cdd6f4;
 }
 
-:not(pre) > code[class*="language-"],
+:not(pre)>code[class*="language-"],
 pre[class*="language-"] {
 	background: #181825;
 }
 
-/* https://prismjs.com/tokens.html */
 
 .token.keyword {
 	color: #cba6f7;
@@ -129,8 +128,7 @@ pre[class*="language-"] {
 .token.bold {
 	font-weight: bold;
 }
+
 .token.italic {
 	font-style: italic;
 }
-
-

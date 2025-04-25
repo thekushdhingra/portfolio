@@ -1,22 +1,73 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html, body {
-    @apply p-0 m-0 w-[100vw] min-h-[100vh] overflow-x-hidden
-}
-:root {
-    --cursor: url('/cursor.svg'), auto;
-    --hover-cursor: url('/hover.svg'), auto;
-}
+
+html,
 body {
-    cursor: var(--cursor);   
+    @apply p-0 m-0 w-screen min-h-[100vh] overflow-x-hidden
 }
-button:hover, a:hover {
-    cursor: var(--hover-cursor);
+
+
+#vscode, #mainhome {
+    pointer-events: all !important;
 }
+
+body * {
+    cursor: url('/cursor.svg'), auto !important;
+}
+
+.cursor-hover {
+    cursor: url('/hover.svg'), auto !important;
+}
+
+button:hover,
+a:hover,
+button:hover *,
+a:hover * {
+    cursor: url('/hover.svg'), auto !important;
+}
+
+a:hover div {
+    cursor: url('/hover.svg'), auto !important;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+    color: #cdd6f4;
+}
+
+#desktoplinks a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0rem 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.2s ease-in-out;
+}
+
+#desktoplinks a::before {
+    content: url("data:image/svg+xml,%3Csvg stroke='currentColor' fill='none' stroke-width='2' viewBox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' height='20px' width='20px' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 7h10v10' stroke='%23cdd6f4'%3E%3C/path%3E%3Cpath d='M7 17 17 7' stroke='%23cdd6f4'%3E%3C/path%3E%3C/svg%3E");
+    transform: translate(-20px, -4px);
+    position: absolute;
+}
+
+#desktoplinks a:hover {
+    transform: translateY(-4px);
+}
+
+
 ::selection {
-    @apply bg-white text-black
+    background: #cdd6f4 !important;
+    color: #11111b !important;
 }
+
 ::-webkit-scrollbar {
     width: 12px;
 }
