@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "./logo";
-import { JetBrains_Mono } from "next/font/google";
 import {
   FaYoutube,
   FaGithub,
