@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 
 const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
   weight: "400",
 });
 
