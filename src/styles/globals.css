@@ -2,13 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
 html,
 body {
-    @apply p-0 m-0 w-screen min-h-[100vh] overflow-x-hidden
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+body {
+    overflow: hidden !important;
 }
 
 
-#vscode, #mainhome {
+html {
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+}
+
+body #vscode,
+#mainhome {
     pointer-events: all !important;
 }
 

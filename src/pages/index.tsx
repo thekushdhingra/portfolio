@@ -259,16 +259,18 @@ export default function Home() {
       </div>
       <div
         id="projects"
-        className="mt-[10vh] w-screen h-screen flex flex-col items-center justify-center z-[5000]"
+        className="mt-[10vh] w-screen min-h-screen h-fit flex flex-col items-center justify-center z-[5000]"
       >
         <h1
-          className={`${font.className} text-7xl drop-shadow-sm shadow-white`}
+          className={`${font.className} text-7xl drop-shadow-sm shadow-white mb-[5vh]`}
         >
           Projects
         </h1>
         <Projects />
       </div>
-      <Footer />
+      <div className="mt-[10vh]">
+        <Footer />
+      </div>
     </>
   );
 }

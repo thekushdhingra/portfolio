@@ -53,7 +53,7 @@ function Socials() {
 
   return (
     <>
-      <div className="flex flex-row items-center gap-2 z-[100000] bg-[#090909] p-4 rounded-2xl">
+      <div className="flex flex-row items-center gap-2 z-[100000] p-4 rounded-2xl">
         <div className="flex beeg:hidden flex-row items-center gap-2">
           <button
             onClick={() => setOpen(!open)}
@@ -96,7 +96,7 @@ export default function Navbar() {
   return (
     <>
       <div className="z-50 w-[100vw] fixed top-[1rem] left-0 mt-1 flex flex-row items-center justify-between pl-4 pr-4">
-        <div className="bg-[#090909] p-2 rounded-md">
+        <div className="p-2 rounded-md">
           <div className="beeg:flex hidden flex-col">
             <p className="font-bold text-1xl ">Kush Dhingra</p>
             <p className="text-[10px]">Web Developer</p>
@@ -105,7 +105,7 @@ export default function Navbar() {
             <Logo />
           </div>
         </div>
-        <nav className="z-50 fixed left-1/2 translate-x-[-150%] flex w-fit top-[1.3rem] shadow-xl shadow-[#11111b20] 768:fixed max-480:fixed max-480:left-1/2 max-480:-translate-x-1/2 p-1 gap-x-2 768:left-1/2 768:-translate-x-1/2 duration-300 bg-[#090909] rounded-full backdrop-blur-md ml-40">
+        <nav className="z-50 fixed left-1/2 translate-x-[-150%] flex w-fit top-[1.3rem] shadow-xl shadow-[#11111b20] 768:fixed max-480:fixed max-480:left-1/2 max-480:-translate-x-1/2 p-1 gap-x-2 768:left-1/2 768:-translate-x-1/2 duration-300 rounded-full backdrop-blur-md ml-40">
           <CustomLink
             href="/"
             className="px-4 py-2 rounded-full hover:bg-[#cdd6f410] transition-colors duration-100"

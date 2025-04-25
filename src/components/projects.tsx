@@ -66,12 +66,12 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="flex beeg:flex-row flex-col w-screen h-screen gap-4 text-center items-center justify-center">
+    <div className="flex flex-wrap beeg:flex-row flex-col w-screen min-h-screen gap-4 text-center items-center justify-center h-fit max-h-fit">
       {projects ? (
         projects.map((project) => (
           <div
             key={project.id}
-            className="flex beeg:w-[30vw] bg-[#11111b50] backdrop-blur-[2px] beeg:h-[40vh] min-h-[26rem] w-[80vw] flex-col border-2 border-gray-500 hover:border-[#b4befe] transition-colors duration-700"
+            className="flex beeg:w-[30vw] bg-[#11111b50] backdrop-blur-[2px] beeg:h-[40vh] min-h-[26rem] h-fit w-[80vw] flex-col border-2 border-gray-500 hover:border-[#b4befe] duration-700 beeg:hover:-translate-y-2 transition-all"
           >
             <Image
               src={project.fields.Attachments[0].thumbnails.full.url}

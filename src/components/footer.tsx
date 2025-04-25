@@ -10,11 +10,6 @@ import {
 } from "react-icons/fa6";
 import Link from "next/link";
 
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: "400",
-});
-
 export default function Footer() {
   const SocialButton = ({
     children,
@@ -34,15 +29,14 @@ export default function Footer() {
     );
   };
   return (
-    <footer className="w-[100vw] h-3/5 p-20 items-center justify-center flex flex-row">
+    <footer className="w-[100vw] beeg:h-[40vh] h-[20vh] p-20 items-center justify-center flex flex-row">
       <div className="text-6xl beeg:flex flex-col hidden w-full">
         <Logo />
         <em className="text-sm text-gray-300 mt-1">Living to code</em>
       </div>
       <div className="flex flex-col w-full items-center justify-center text-gray-50">
         <p className=" bold text-2xl flex flex-row items-center justify-center gap-2 text-center">
-          {"Made with"} <span className={jetBrainsMono.className}>{"{}"}</span>{" "}
-          {"By Kush"}
+          Made with &#123;&#125; By Kush
         </p>
         <div>
           <div className="flex flex-row gap-3 p-2 h-fit text-center">
