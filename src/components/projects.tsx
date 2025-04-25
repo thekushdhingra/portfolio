@@ -4,8 +4,49 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa6";
 
+type ProjectRecord = {
+  id: string;
+  createdTime: string;
+  fields: {
+    Name: string;
+    Attachments: {
+      id: string;
+      width: number;
+      height: number;
+      url: string;
+      filename: string;
+      size: number;
+      type: string;
+      thumbnails: {
+        small: {
+          url: string;
+          width: number;
+          height: number;
+        };
+        large: {
+          url: string;
+          width: number;
+          height: number;
+        };
+        full: {
+          url: string;
+          width: number;
+          height: number;
+        };
+      };
+    }[];
+    "Github URL": string;
+    "Project URL"?: string;
+    Description: string;
+  };
+};
+
+type ProjectsType = {
+  records: ProjectRecord[];
+};
+
 export default function Projects() {
-  const [projects, setProjects] = useState<any[]>([]);
+  const [projects, setProjects] = useState<ProjectRecord[] | null>(null);
 
   useEffect(() => {
     // Read Only token for Airtable
@@ -16,22 +57,24 @@ export default function Projects() {
       },
     })
       .then((res) => res.json())
-      .then((data) => {
-        setProjects(data.records.reverse());
+      .then((data: ProjectsType) => {
+        setProjects(data.records);
+      })
+      .catch((error) => {
+        console.error("Error fetching projects:", error);
       });
   }, []);
+
   return (
     <div className="flex beeg:flex-row flex-col w-screen h-screen gap-4 text-center items-center justify-center">
-      {projects && projects.length > 0 ? (
+      {projects ? (
         projects.map((project) => (
           <div
             key={project.id}
             className="flex beeg:w-[30vw] bg-[#11111b50] backdrop-blur-[2px] beeg:h-[40vh] min-h-[26rem] w-[80vw] flex-col border-2 border-gray-500 hover:border-[#b4befe] transition-colors duration-700"
           >
             <Image
-              src={
-                project.fields["Attachments"][0]["thumbnails"]["full"]["url"]
-              }
+              src={project.fields.Attachments[0].thumbnails.full.url}
               width={500}
               height={500}
               alt="Project Banner"
@@ -42,17 +85,21 @@ export default function Projects() {
               <p>{project.fields.Description}</p>
               <div className="flex flex-row gap-2 text-center items-center justify-center">
                 <Link
-                  className="bg-gray-300 transition-colors duration-150 p-2 text-black cursor-hover rounded-full hover:bg-[#cdd6f4]"
+                  className="bg-gray-300 transition-colors duration-150 p-2 text-black cursor-pointer rounded-full hover:bg-[#cdd6f4]"
                   href={project.fields["Github URL"]}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <FaGithub></FaGithub>
+                  <FaGithub />
                 </Link>
                 {project.fields["Project URL"] && (
                   <Link
-                    className="bg-gray-300 transition-colors duration-150 p-2 text-black cursor-hover rounded-full hover:bg-[#cdd6f4]"
+                    className="bg-gray-300 transition-colors duration-150 p-2 text-black cursor-pointer rounded-full hover:bg-[#cdd6f4]"
                     href={project.fields["Project URL"]}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <FaLink></FaLink>
+                    <FaLink />
                   </Link>
                 )}
               </div>
