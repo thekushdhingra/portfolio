@@ -239,7 +239,7 @@ export default function Home() {
             >
               Hello 👋, I am Kush
             </h1>
-            <em className="text-gray-200 text-xl">Coding with passion</em>
+            <em className="text-[#cdd6f4] text-xl mt-1">Coding with passion</em>
             <div className="flex flex-row w-full items-center justify-center gap-6 mt-4">
               <Link
                 href="https://github.com/thekushdhingra"

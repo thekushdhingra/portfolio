@@ -28,12 +28,12 @@ export default function Footer() {
     );
   };
   return (
-    <footer className="w-[100vw] beeg:h-[40vh] h-[20vh] p-20 items-center justify-center flex flex-row">
+    <footer className="w-screen beeg:h-[40vh] h-[20vh] p-20 items-center justify-center flex flex-row beeg:mb-0 mb-10">
       <div className="text-6xl beeg:flex flex-col hidden w-full">
         <Logo />
         <em className="text-sm text-gray-300 mt-1">Living to code</em>
       </div>
-      <div className="flex flex-col w-full items-center justify-center text-gray-50">
+      <div className="flex flex-col w-full items-end justify-center text-gray-50">
         <p className=" bold text-2xl flex flex-row items-center justify-center gap-2 text-center">
           Made with &#123;&#125; By Kush
         </p>
