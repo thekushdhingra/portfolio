@@ -71,7 +71,7 @@ export default function Projects() {
         projects.map((project) => (
           <div
             key={project.id}
-            className="flex beeg:w-[30vw] bg-[#11111b50] backdrop-blur-[2px] beeg:h-[40vh] min-h-[26rem] h-fit w-[80vw] flex-col border-2 border-gray-500 hover:border-[#b4befe] duration-700 beeg:hover:-translate-y-2 transition-all"
+            className="flex beeg:w-[30vw] bg-[#11111b50] backdrop-blur-[2px] beeg:h-[40vh] min-h-[33rem] h-fit w-[80vw] flex-col border-2 border-gray-500 hover:border-[#b4befe] duration-700 beeg:hover:-translate-y-2 transition-all"
           >
             <Image
               src={project.fields.Attachments[0].thumbnails.full.url}
