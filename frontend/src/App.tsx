@@ -1,6 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiLinkedin } from "react-icons/fi";
-import { PiGithubLogo } from "react-icons/pi";
+import { PiGithubLogo, PiLink } from "react-icons/pi";
+
+type Thumbnail = {
+  url: string;
+  width: number;
+  height: number;
+};
+
+type ImageData = {
+  id: string;
+  width: number;
+  height: number;
+  url: string;
+  filename: string;
+  size: number;
+  type: string;
+  thumbnails: {
+    small: Thumbnail;
+    large: Thumbnail;
+    full: Thumbnail;
+  };
+};
+
+type Project = {
+  id: string;
+  Name: string;
+  Description: string;
+  Link: string;
+  Github?: string;
+  Image: ImageData[];
+};
 
 function App() {
   const skills = [
@@ -20,23 +50,30 @@ function App() {
     "PostgreSQL",
   ];
 
-  // More placeholder projects
-  const projects = Array.from({ length: 12 }, (_, i) => ({
-    name: `Project ${i + 1}`,
-    description: `This is a description for Project ${i + 1}.`,
-    link: "#",
-    image: `https://via.placeholder.com/300x160?text=Project+${i + 1}`,
-  }));
-
+  const [projects, setProjects] = useState<Project[]>([]);
   const projectsPerPage = 4;
   const totalPages = Math.ceil(projects.length / projectsPerPage);
-
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    fetch("https://kushs-backend.vercel.app/projects")
+      .then((res) => res.json())
+      .then((data) => setProjects(data["projects"]))
+      .catch(() => setProjects([]));
+  }, []);
 
   const currentProjects = projects.slice(
     (currentPage - 1) * projectsPerPage,
     currentPage * projectsPerPage
   );
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+  };
+
+  const handleBack = () => {
+    if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+  };
 
   return (
     <div className="bg-[#141414] text-white w-screen min-h-screen md:h-screen md:overflow-hidden overflow-y-auto p-6 flex justify-center items-start md:items-center">
@@ -57,6 +94,7 @@ function App() {
             </p>
           </div>
 
+          {/* Skills */}
           <div className="bg-[#151515] border border-[#222222] rounded-xl p-6 text-center md:text-left flex-grow overflow-y-auto md:overflow-visible">
             <h2 className="text-xl font-semibold mb-4">My Skills</h2>
             <div className="flex flex-wrap justify-center md:justify-start gap-3">
@@ -105,48 +143,75 @@ function App() {
         <div className="bg-[#151515] border border-[#222222] rounded-xl p-6 flex flex-col h-auto md:h-full overflow-y-auto">
           <h2 className="text-2xl font-semibold mb-6 text-center">Projects</h2>
           <div className="flex flex-wrap justify-center gap-4">
-            {currentProjects.map((project, idx) => (
+            {currentProjects.map((project) => (
               <div
-                key={idx}
+                key={project.id}
                 className="bg-[#1c1c1c] p-4 rounded-lg border border-[#222222] hover:border-[#15C2CB] transition-all w-full sm:w-[48%]"
               >
                 <img
-                  src={project.image}
-                  alt={project.name}
+                  src={project.Image?.[0]?.url}
+                  alt={project.Name}
                   className="rounded-lg mb-3 w-full h-40 object-cover"
                 />
-                <h3 className="text-lg font-semibold mb-1">{project.name}</h3>
+                <h3 className="text-lg font-semibold mb-1">{project.Name}</h3>
                 <p className="text-gray-400 text-sm mb-2">
-                  {project.description}
+                  {project.Description}
                 </p>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#15C2CB] hover:underline text-sm"
-                >
-                  View Project →
-                </a>
+                <div className="flex gap-2 items-center">
+                  {project.Link && (
+                    <a
+                      href={project.Link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:bg-white hover:text-black p-3 rounded-full border-2 transition-colors duration-300 hover:border-transparent border-[#222222]"
+                    >
+                      <PiLink size={18} />
+                    </a>
+                  )}
+                  {project.Github && (
+                    <a
+                      href={project.Github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:bg-white hover:text-black p-3 rounded-full border-2 transition-colors duration-300 hover:border-transparent border-[#222222]"
+                      title="GitHub Repository"
+                    >
+                      <PiGithubLogo size={18} />
+                    </a>
+                  )}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Pagination Buttons */}
-          <div className="flex justify-center mt-6 gap-2">
-            {Array.from({ length: totalPages }, (_, i) => (
+          {/* Back & Next Buttons */}
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-6 gap-4">
               <button
-                key={i}
-                onClick={() => setCurrentPage(i + 1)}
-                className={`px-4 py-1 rounded ${
-                  currentPage === i + 1
-                    ? "bg-[#15C2CB] text-black"
-                    : "bg-[#222222] text-gray-400 hover:bg-[#333]"
+                onClick={handleBack}
+                disabled={currentPage === 1}
+                className={`px-5 py-2 rounded-lg font-medium transition-colors duration-300 ${
+                  currentPage === 1
+                    ? "bg-[#222222] text-gray-600 cursor-not-allowed"
+                    : "bg-[#222222] text-gray-300 hover:bg-[#333]"
                 }`}
               >
-                {i + 1}
+                ← Back
               </button>
-            ))}
-          </div>
+
+              <button
+                onClick={handleNext}
+                disabled={currentPage === totalPages}
+                className={`px-5 py-2 rounded-lg font-medium transition-colors duration-300 ${
+                  currentPage === totalPages
+                    ? "bg-[#222222] text-gray-600 cursor-not-allowed"
+                    : "bg-[#222222] text-gray-300 hover:bg-[#333]"
+                }`}
+              >
+                Next →
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
