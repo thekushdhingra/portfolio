@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Transparent background, black terminal with white outline and icons -->
+<svg
+  width="800px"
+  height="800px"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <!-- Transparent overall background -->
+  <rect width="48" height="48" fill="none"/>
+
+  <!-- Terminal window (black fill + white outline) -->
+  <rect
+    x="4"
+    y="8"
+    width="40"
+    height="32"
+    rx="2"
+    fill="black"
+    stroke="white"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+
+  <!-- Caret / prompt arrow -->
+  <path
+    d="M12 18L19 24L12 30"
+    stroke="white"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Command line -->
+  <path
+    d="M23 32H36"
+    stroke="white"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
